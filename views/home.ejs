@@ -4,25 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+
+    <!--  Stylesheets  -->
     <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Tailwind and Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.18.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <header>
-        <h1>TODO APP</h1>
-    </header>
-
+    
     <main>
+        <h1>TODO APP</h1>
         <!-- form to add a task -->
         <form action="/create-task" method="POST" id="form">
             <div>
                 <label for="description">DESCRIPTION</label>
-                <textarea name="description" id="description" required placeholder="What do you need to do?"></textarea>
+                <textarea name="description" id="description" class="input input-bordered input-secondary" required placeholder="What do you need to do?"></textarea>
             </div>
             
             <div id="additionals">
                 <div>
                     <label for="category">CATEGORY</label>
-                    <select name="category" id="category" required>
+                    <select name="category" id="category" class="input input-bordered input-secondary" required>
                         <option value="Personal" selected>Personal</option>
                         <option value="Work">Work</option>
                         <option value="School">School</option>
@@ -33,15 +43,15 @@
 
                 <div>
                     <label for="date">DUE DATE</label>
-                    <input type="date" name="date" id="date" required>
+                    <input type="date" name="date" id="date" class="input input-bordered input-secondary" required>
                 </div>
             </div>
         </form>
 
         <!-- buttons to submit the form and delete tasks -->
         <div id="buttons">
-            <button type="submit" id="add-btn" form="form">ADD TASK</button>
-            <button id="delete-btn">DELETE TASKS</button>
+            <button type="submit" id="add-btn" form="form" class="btn btn-secondary">ADD TASK <i class="fa-solid fa-plus"></i> </button>
+            <button id="delete-btn" class="btn btn-secondary">DELETE TASK <i class="fa-solid fa-trash"></i> </button>
         </div>
         
         <!-- container to display tasks -->
@@ -52,14 +62,14 @@
                 <%let date = new Date(dt).toDateString()%>
 
                 <div class="task-card">
-                    <div class="task-checkbox">
+                    <div class="task-checkbox bg-auto">
                         <input class="delete-check-box" type="checkbox" name="task-done" value=<%= task.id %>>
                     </div>
                     <div class="task-description">
                         <p><%= task.description%></p>
-                        <p class="date"><%= date%></p>
+                        <p class="date"> <i class="fa-solid fa-calendar"></i> <%= date%></p>
                     </div>
-                    <div class="task-category">
+                    <div class="category btn btn-secondary">
                         <p><%= task.category%></p>
                     </div>
                 </div>
@@ -68,6 +78,30 @@
 
     </main>
 
+    <!--Theme switcher-->
+    <div class="theme-switcher">
+        <div class="dropdown dropdown-left">
+            <label tabindex="0" class="btn m-1">
+                <i class="fa-solid fa-brush fa-bounce" style="font-size: 1.5rem;"></i>
+            </label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li class="theme-item" theme="cupcake"><a>cupcake</a></li>
+                <li class="theme-item" theme="dark"><a>dark</a></li>
+                <li class="theme-item" theme="light"><a>light</a></li>
+                <li class="theme-item" theme="bumblebee"><a>bumblebee</a></li>
+                <li class="theme-item" theme="synthwave"><a>synthwave</a></li>
+                <li class="theme-item" theme="halloween"><a>halloween</a></li>
+                <li class="theme-item" theme="fantasy"><a>fantasy</a></li>
+                <li class="theme-item" theme="dracula"><a>dracula</a></li>
+                <li class="theme-item" theme="aqua"><a>aqua</a></li>
+                <li class="theme-item" theme="luxury"><a>luxury</a></li>
+                <li class="theme-item" theme="night"><a>night</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/1dd0c8a742.js" crossorigin="anonymous"></script>
     <script src="/js/home.js"></script>
 </body>
 </html>

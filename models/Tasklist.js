@@ -1,3 +1,4 @@
+//import mongoose
 const mongoose = require('mongoose');
 
 //create schema
@@ -18,4 +19,6 @@ const taskListSchema = new mongoose.Schema({
 
 //create model
 const Tasks = mongoose.model('Tasks', taskListSchema);
+
+//export model
 module.exports = Tasks;
