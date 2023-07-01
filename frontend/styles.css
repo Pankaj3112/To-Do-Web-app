@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: rgb(241, 234, 234);
+}
+
+header{
+    padding: 20px;
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    background-color: #fff;
+}
+
+main{
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+form label{
+    display: block;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+form>div{
+    border-top: 1px solid rgb(231, 231, 231);
+    padding: 5px 10px;
+}
+
+/* textarea */
+form div>textarea{
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    height: 50px;
+    border: none;
+    font-size: 1rem;
+}
+
+form div>textarea:focus{
+    outline: none;
+}
+
+/* Category and Date */
+#additionals{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#additionals>div{
+    width: 50%;
+}
+
+#additionals select, #additionals input{
+    width: 90%;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Add and Delete Buttons */
+#buttons{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border-top: 1px solid rgb(231, 231, 231);
+}
+
+#buttons button{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+/* task-container and task item */
+
+#task-container{
+    padding: 20px;
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.task-card{
+    display: flex;
+    height: max-content;
+    border-top: 1px solid rgb(231, 231, 231);
+    padding: 15px 0;
+}
+
+/* checkbox */
+.task-checkbox{
+    width: 30px;
+}
+
+.task-checkbox input{
+    width: 15px;
+    height: 15px;
+}
+
+
+/* task description and date */
+.task-description{
+    width: 80%;
+}
+
+.task-description .date{
+    font-size: 0.8rem;
+    color: grey;
+    padding: 5px 0;
+}
+
+/* task-category */
+.task-category{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-category p{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(253, 210, 217);
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}

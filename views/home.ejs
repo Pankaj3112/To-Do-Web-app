@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <header>
+        <h1>TODO APP</h1>
+    </header>
+
+    <main>
+        <!-- form to add a task -->
+        <form action="/create-task" method="POST" id="form">
+            <div>
+                <label for="description">DESCRIPTION</label>
+                <textarea name="description" id="description" required placeholder="What do you need to do?"></textarea>
+            </div>
+            
+            <div id="additionals">
+                <div>
+                    <label for="category">CATEGORY</label>
+                    <select name="category" id="category" required>
+                        <option value="Personal" selected>Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="School">School</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Other" >Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="date">DUE DATE</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+            </div>
+        </form>
+
+        <!-- buttons to submit the form and delete tasks -->
+        <div id="buttons">
+            <button type="submit" id="add-btn" form="form">ADD TASK</button>
+            <button id="delete-btn">DELETE TASKS</button>
+        </div>
+        
+        <!-- container to display tasks -->
+        <div id="task-container">
+            <%for (let task of tasks_list){%>
+                <!-- Converting date to string -->
+                <%let dt = task.date%>
+                <%let date = new Date(dt).toDateString()%>
+
+                <div class="task-card">
+                    <div class="task-checkbox">
+                        <input class="delete-check-box" type="checkbox" name="task-done" value=<%= task.id %>>
+                    </div>
+                    <div class="task-description">
+                        <p><%= task.description%></p>
+                        <p class="date"><%= date%></p>
+                    </div>
+                    <div class="task-category">
+                        <p><%= task.category%></p>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+
+    </main>
+
+    <script src="/js/home.js"></script>
+</body>
+</html>
